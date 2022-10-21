@@ -7,7 +7,6 @@ function renderData(filter) {
 
     DATA.forEach(obj => {
         const activityCard = activityContent.querySelector(`.${obj.title.toLowerCase().split(' ').join('-')}`);
-        activityCard.style.backgroundColor = obj.backgroundColor;
         activityCard.style.backgroundImage = `url("${obj.icon}")`;
 
         activityCard.querySelector('.activity-type').textContent = obj.title;

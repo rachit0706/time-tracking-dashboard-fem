@@ -189,26 +189,32 @@ svg:hover {
 }
 
 .work {
+    background-color: var(--light-red-work);
     grid-area: work;
 }
 
 .play {
+    background-color: var(--soft-blue);
     grid-area: play;
 }
 
 .study {
+    background-color: var(--light-red);
     grid-area: study;
 }
 
 .exercise {
+    background-color: var(--lime-green);
     grid-area: exercise;
 }
 
 .social {
+    background-color: var(--violet-);
     grid-area: social;
 }
 
 .self-care {
+    background-color: var(--soft-orange);
     grid-area: self-care;
 }
 
