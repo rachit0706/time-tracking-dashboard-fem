@@ -11,7 +11,6 @@ function renderData(filter) {
 
         activityCard.querySelector('.activity-type').textContent = obj.title;
         activityCard.querySelector('.ellipsis-icon').src = "./images/icon-ellipsis.svg";
-        activityCard.querySelector('.ellipsis-icon').alt = "Ellipsis Icon";
 
         activityCard.querySelector('.current-duration').textContent = `${obj.timeframes[filter].current}hrs`;
 
