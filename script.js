@@ -4,26 +4,19 @@ renderData("weekly");
 
 function renderData(filter) {
     const activityContent = document.getElementById("activity-content");
-    
+
     DATA.forEach(obj => {
-        const activityCard = document.createElement('section');
-        activityCard.classList.add('card', 'activity-card', `${obj.title.toLowerCase().split(' ').join('-')}`);
+        const activityCard = activityContent.querySelector(`.${obj.title.toLowerCase().split(' ').join('-')}`);
         activityCard.style.backgroundColor = obj.backgroundColor;
         activityCard.style.backgroundImage = `url("${obj.icon}")`;
-        activityCard.innerHTML = `
-        <div class="activity-info">
-            <div class="activity flex-row">
-            <span class="activity-type">${obj.title}</span>
-            <img src="./images/icon-ellipsis.svg" type="image/svg+xml" class="ellipsis-icon">
-        </div>
-        <div class="duration flex-row">
-            <span class="current-duration">${obj.timeframes[filter].current}hrs</span>
-            <span class="previous-duration">Last ${filter === 'daily' ?"day" : filter.substring(0, filter.length - 2)} - ${obj.timeframes[filter].previous}hrs</span>
-        </div>
-        </div>
-        `;
+
+        activityCard.querySelector('.activity-type').textContent = obj.title;
+        activityCard.querySelector('.ellipsis-icon').src = "./images/icon-ellipsis.svg";
+
+        activityCard.querySelector('.current-duration').textContent = `${obj.timeframes[filter].current}hrs`;
+
+        activityCard.querySelector('.previous-duration').textContent = `Last ${filter === 'daily' ?"day" : filter.substring(0, filter.length - 2)} - ${obj.timeframes[filter].previous}hrs`;
         
-        activityContent.append(activityCard)
     });
 }
 
