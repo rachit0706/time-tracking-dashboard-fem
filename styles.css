@@ -1,0 +1,284 @@
+:root {
+    --blue: hsl(246, 80%, 60%);
+    --light-red-work: hsl(15, 100%, 70%);
+    --soft-blue: hsl(195, 74%, 62%);
+    --light-red: hsl(348, 100%, 68%);
+    --lime-green: hsl(145, 58%, 55%);
+    --violet-: hsl(264, 64%, 52%);
+    --soft-orange: hsl(43, 84%, 65%);
+    --very-dark-blue: hsl(226, 43%, 10%);
+    --dark-blue: hsl(235, 46%, 20%);
+    --desaturated-blue: hsl(235, 45%, 61%);
+    --pale-blue: hsl(236, 100%, 87%);
+    /* 300, 400, 500 */
+    font-size: 18px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--very-dark-blue);
+}
+
+main {
+    width: 100%;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+/* GENERAL STYLING */
+
+.user-info>img {
+    height: 4rem;
+    width: 4rem;
+    border: 4px solid var(--pale-blue);
+    border-radius: 50%;
+}
+
+.card,
+.user-info {
+    border-radius: .8rem;
+    /* border: 1px solid black; */
+    overflow: hidden;
+    color: var(--desaturated-blue);
+}
+
+/* USER CARD STYLING */
+
+figcaption>h1 {
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: var(--pale-blue);
+}
+
+figcaption>span {
+    font-weight: 500;
+    font-size: .8rem;
+    opacity: 0.8;
+    color: var(--pale-blue);
+}
+
+.timeframes,
+.user-info {
+    padding: 1.5rem;
+}
+
+.user-info {
+    background-color: var(--blue);
+}
+
+.user-card {
+    background-color: var(--dark-blue);
+    grid-area: user;
+}
+
+.user-info {
+    align-items: center;
+    gap: 1rem;
+}
+
+.timeframes {
+    justify-content: space-between;
+}
+
+/* ACTIVITY CARD STYLING */
+
+.activity-card {
+    padding-top: 2rem;
+    background-repeat: no-repeat;
+    background-position: top -.6rem right 0.6rem;
+}
+
+.activity-info {
+    border-radius: .8rem;
+    height: 100%;
+    padding: 1.5rem;
+    background-color: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+}
+
+.ellipsis-icon {
+    height: .3rem;
+    filter: invert(90%) sepia(11%) saturate(7023%) hue-rotate(188deg) brightness(101%) contrast(101%);
+}
+
+.default-timeframe,
+.activity-type,
+.current-duration {
+    color: white;
+}
+
+.activity-type {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.current-duration {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.previous-duration {
+    font-size: .8rem;
+    font-weight: 400;
+    color: var(--pale-blue);
+}
+
+.activity, .duration {
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .4rem;
+}
+
+/* HOVER STATE */
+
+.timeframe:hover,
+.activity-info:hover,
+.ellipsis-icon:hover,
+svg:hover {
+    cursor: pointer;
+}
+
+.timeframe:hover {
+    color: var(--pale-blue);
+}
+
+.activity-info:hover {
+    background-color: hsl(235, 37%, 43%);
+}
+
+.ellipsis-icon:hover {
+    filter: invert(100%) sepia(1%) saturate(7500%) hue-rotate(60deg) brightness(104%) contrast(100%);
+}
+
+/* LAYOUT */
+
+.grid-container {
+    margin: 1rem auto;
+    max-width: 60rem;
+    padding: 1.2rem;
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, auto);
+    grid-template-areas:
+        "user"
+        "work"
+        "play"
+        "study"
+        "exercise"
+        "social"
+        "self-care";
+}
+
+.work {
+    grid-area: work;
+}
+
+.play {
+    grid-area: play;
+}
+
+.study {
+    grid-area: study;
+}
+
+.exercise {
+    grid-area: exercise;
+}
+
+.social {
+    grid-area: social;
+}
+
+.self-care {
+    grid-area: self-care;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas:
+            "user work"
+            "user exercise"
+            "play study"
+            "social self-care";
+    }
+
+    .user-info,
+    .duration,
+    .timeframes {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timeframes {
+        gap: 1.6rem;
+    }
+
+    .user-info {
+        padding-top: 2rem;
+        padding-bottom: 5rem;
+        gap: 2rem;
+    }
+
+    .user-info>img {
+        height: 5rem;
+        width: 5rem;
+    }
+
+    figcaption>h1 {
+        font-size: 2.3rem;
+        color: white;
+    }
+
+    .duration {
+        margin-top: 1.3rem;
+        gap: .5rem;
+    }
+
+    .current-duration {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "user work play study"
+        "user exercise social self-care";
+    }
+}
+
+.attribution {
+    font-size: 1rem;
+    text-align: center;
+    color: var(--pale-blue);
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
