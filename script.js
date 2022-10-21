@@ -1,14 +1,9 @@
 import DATA from './data.json' assert {type: 'json'};
 
-const activityContent = document.getElementById("activity-content");
-
-const selectedTime = {
-    daily: false,
-    weekly: true,
-    monthly: false
-}
+renderData("weekly");
 
 function renderData(filter) {
+    const activityContent = document.getElementById("activity-content");
     
     DATA.forEach(obj => {
         const activityCard = document.createElement('section');
@@ -32,7 +27,11 @@ function renderData(filter) {
     });
 }
 
-renderData("weekly");
+const selectedTime = {
+    daily: false,
+    weekly: true,
+    monthly: false
+}
 
 const timeFrames = document.querySelector(".timeframes");
 
